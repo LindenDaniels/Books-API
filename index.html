@@ -9,16 +9,28 @@
 </head>
 <body>
     <section class="form-container">
-        <h1>Book Finder Project</h1>
-        <p>Enter a search term to find books related to that term.</p>
+        <h1>Find Your Next Book</h1>
         <form class="search-form">
-            <label for="search-term">Topic</label>
-            <input type="text" class="search-term" name="search-term" value="Sci Fi" required>
-            <label for="max-results">Number of Results</label>
-            <input type="number" name="max-results" class="max-results" value="10">
-            <input type="submit" value="Search">
+            
+            <label for="search-term">What would you like to read next?</label>
+            
+            <input type="text" class="search-box" name="search-term" 
+            value="Romance" required>
+            
+            <input type="submit" class="submit-button" value="Find Books">
+            
+   
+            
+            
 
         </form>
+        <p class="error-message"></p>
+    </section>
+    <p></p>
+    <section id="search-results" class="hidden">
+        <ul id="results-list">
+
+        </ul>
     </section>
     
 </body>
