@@ -2,28 +2,37 @@
     box-sizing: border-box;
 }
 
+.form-container {
+    margin: auto;
+    max-width: 800px;
+}
 
 .search-box {
-    
-    flex: 1;
+    flex: 2;
     padding: 5px;
+   
 }
 .submit-button {
-    flex: 1;
+    
+    
+    
 }
 .search-form {
     display: flex;
-    margin: auto;
     padding: 5px;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap; 
+    
+}
+.search-term {
+    flex-basis: 100%;
 }
 h1 {
     margin: auto;
     padding: 20px;
+    flex-basis: 100%
 }
 label {
-    display: block;
+    flex-basis: 100%;
     padding: 5px;
 }
 .hidden {
