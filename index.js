@@ -20,8 +20,10 @@ function displayResults(responseJson, maxResults) {
    
         $('#results-list').append(
           `
+          
+          <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
           <li><h3>${responseJson.items[i].volumeInfo.title}</h3>
-          <p>${responseJson.items[i].volumeInfo.authors}</p>
+          <h2>${responseJson.items[i].volumeInfo.authors}</h2>
           <p>${responseJson.items[i].volumeInfo.description}</p>
           <a href="${responseJson.items[i].saleInfo.buyLink}">Buy this Book</a>
           </li>`
@@ -29,11 +31,18 @@ function displayResults(responseJson, maxResults) {
       $('#search-results').removeClass('hidden');
 };
 
-function getBooks(searchTerm, maxResults = 5) {
+function getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, freeBooks, maxResults = 5) {
     
     console.log(`getBooks ran`);
     const params = {
         q: searchTerm,
+        intitle: titleName,
+        inauthor: authorName,
+        subject: subjectName,
+        inpublisher: publisherName,
+        isbn: isbnNumber,
+        filter: freeBooks,
+
         maxResults: maxResults
     };
     const queryString = formatQueryParams(params)
@@ -52,13 +61,29 @@ function getBooks(searchTerm, maxResults = 5) {
         $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }
+function handleFreeBooks() {
+    console.log(`handleFreeBooks ran`);
+    if ($('#js-free-only').val() == true) {
+        let freeBooks = free-ebooks;
+        
+    }
+}
 function watchForm() {
     console.log(`watchForm ran`);
 $('form').submit (event => {
     event.preventDefault();
+    handleFreeBooks();
     const searchTerm = $('#js-search-term').val();
     const maxResults = $('#js-max-results').val();
-    getBooks(searchTerm, maxResults);
+    const titleName = $('#js-title-name').val();
+    const authorName = $('#js-author-name').val();
+    const subjectName = $('#js-subject-name').val();
+    const publisherName = $('#js-publisher-name').val();
+    const isbnNumber = $('#js-isbn-number').val();
+
+   
+    
+    getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, freeBooks, maxResults);
 });
 }
 $(watchForm);

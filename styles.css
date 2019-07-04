@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
 }
+body {
+   background-color: #a773c3;
+   color: #ffa1c5;
+}
 
 .form-container {
     margin: auto;
@@ -12,7 +16,8 @@
     padding: 5px;
    
 }
-.submit-button {
+ul { 
+    list-style: none;
     
     
     

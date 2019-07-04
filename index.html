@@ -16,9 +16,29 @@
         <form class="search-form">
             
             <label for="search-term">What would you like to read next?</label>
-            
             <input type="text" class="search-box" id="js-search-term" name="search-term" 
-            value="Romance" required>
+            suggested="Romance" required>
+
+            <label for="title-name">Title</label>
+            <input type="text" class="search-box" id="js-title-name" name="title-name">
+            
+            <label for="author-name">Author</label>
+            <input type="text" class="search-box" id="js-author-name" name="author-name">
+
+            <label for="subject-name">Subject</label>
+            <input type="text" class="search-box" id="js-subject-name" name="subject-name">
+
+            <label for="publisher-name">Publisher</label>
+            <input type="text" class="search-box" id="js-publisher-name" name="publisher-name">
+
+            <label for="isbn-number">ISBN</label>
+            <input type="number" class="search-box" id="js-isbn-number" name="isbn-number">
+
+            <label for="ebook-only">Ebooks Only</label>
+            <input type="checkbox" class="check-box" id="js-ebook-only" name="ebook-only">
+            <label for="free-only">Free</label>
+            <input type="checkbox" class="check-box" id="js-free-only" name="free-only">
+            
             <label for="max-results">Maximum results to return</label>
             <input type="number" name="max-results" id="js-max-results" value="5">
             
