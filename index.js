@@ -10,19 +10,18 @@ function formatQueryParams(params) {
     .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 }
-google.books.load();
 
- function initialize() {
-     console.log(`initialize ran`);
-    var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-    let bookISBN = `${responseJson.items[i].volumeInfo.industryIdentifiers[1].identifier}`.val();
-    console.log(bookISBN);
-     viewer.load('ISBN:' + bookISBN);
+// google.books.load();
+//  function initialize() {
+    //  console.log(`initialize ran`);
+    // var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+    //  viewer.load('ISBN:0738531367');
     
-   }
-google.books.setOnLoadCallback(initialize);
+//    }
+// google.books.setOnLoadCallback(initialize);
 
 function displayResults(responseJson, maxResults) {
+    
     console.log(`displayResults ran`);
     console.log(responseJson);
     $('#results-list').empty();
@@ -30,22 +29,32 @@ function displayResults(responseJson, maxResults) {
     for (let i = 0; i < responseJson.items.length & i < maxResults; i++){
         
         $('#results-list').append(
-          `<li>
+            `
+          <li>
           <p>${responseJson.items[i].volumeInfo.industryIdentifiers[1].identifier}</p>
           <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
           <h3>${responseJson.items[i].volumeInfo.title}</h3>
           <h2>${responseJson.items[i].volumeInfo.authors}</h2>
           <p>${responseJson.items[i].volumeInfo.description}</p>
+          
           <a href="${responseJson.items[i].saleInfo.buyLink}">Buy this Book</a>
+          <input type="submit" class="preview-button" id="book-preview" value="Preview This Book">
           </li>`)
-        $('#viewerCanvas').append(`<script type="text/javascript">
-        GBS_insertPreviewButtonPopup('ISBN:0738531367')
-        </script>;`)
+        
         };
 
         
       $('#search-results').removeClass('hidden');
 };
+
+function googleBookViewer() {
+    console.log(`'googleBookViewer ran'`)
+    $('#results-list').on('click', '#book-preview', function(event)  {
+        event.preventDefault();
+        location.assign("bookViewer.html");
+    });
+    }
+
 
 
 
@@ -104,6 +113,7 @@ $('form').submit (event => {
    
     
     getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, /*freeBooks,*/ maxResults);
+    googleBookViewer();
 });
 }
 $(watchForm);
