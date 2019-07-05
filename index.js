@@ -36,17 +36,13 @@ function displayResults(responseJson, maxResults) {
           <h3>${responseJson.items[i].volumeInfo.title}</h3>
           <h2>${responseJson.items[i].volumeInfo.authors}</h2>
           <p>${responseJson.items[i].volumeInfo.description}</p>
-          <script type="text/javascript">
-   
-    GBS_insertPreviewButtonPopup('ISBN:0738531367')
-    </script>;
           <a href="${responseJson.items[i].saleInfo.buyLink}">Buy this Book</a>
-         
-          </li>
-          
-         
-          `
-        )};
+          </li>`)
+        $('#viewerCanvas').append(`<script type="text/javascript">
+        GBS_insertPreviewButtonPopup('ISBN:0738531367')
+        </script>;`)
+        };
+
         
       $('#search-results').removeClass('hidden');
 };
