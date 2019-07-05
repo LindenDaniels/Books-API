@@ -34,10 +34,12 @@
             <label for="isbn-number">ISBN</label>
             <input type="number" class="search-box" id="js-isbn-number" name="isbn-number">
 
+            <div class="search-options">
             <label for="ebook-only">Ebooks Only</label>
             <input type="checkbox" class="check-box" id="js-ebook-only" name="ebook-only">
             <label for="free-only">Free</label>
             <input type="checkbox" class="check-box" id="js-free-only" name="free-only">
+            </div>
             
             <label for="max-results">Maximum results to return</label>
             <input type="number" name="max-results" id="js-max-results" value="5">
@@ -57,8 +59,17 @@
         <ul id="results-list">
 
         </ul>
+        <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
     </section>
+    <script src="index.js"></script>
+<script type="text/javascript" src="https://books.google.com/books/previewlib.js"></script>
+<script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+<script type="text/javascript" class="hidden">
+   
+    </script>
     
 </body>
-<script src="index.js"></script>
+
+
+
 </html>

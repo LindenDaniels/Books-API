@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 body {
-   background-color: #a773c3;
-   color: #ffa1c5;
+   background-color: #995dba;
+   color: #ffffff;
 }
 
 .form-container {
@@ -17,10 +17,7 @@ body {
    
 }
 ul { 
-    list-style: none;
-    
-    
-    
+    list-style: none;  
 }
 .search-form {
     display: flex;
@@ -34,7 +31,8 @@ ul {
 h1 {
     margin: auto;
     padding: 20px;
-    flex-basis: 100%
+    flex-basis: 100%;
+    text-align: center;
 }
 label {
     flex-basis: 100%;
@@ -42,4 +40,8 @@ label {
 }
 .hidden {
     display: none;
+  }
+  .search-options {
+      flex-direction: row;
+      display: block;
   }
