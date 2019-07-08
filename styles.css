@@ -45,7 +45,36 @@ label {
       flex-direction: row;
       display: block;
   }
-  iframe {
-      height: 800px;
-      width: 800px;
-  }
+#results-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-between;
+}
+.result-display {
+    
+    flex: 2;
+    padding: 45px;
+    flex-basis: 50%;
+}
+.result-display img {
+    display: block;
+    margin: auto;
+}
+.result-display p {
+    font-size: 18px;
+    line-height: 160%;
+    text-align: left;
+}
+.hold-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+h2 {
+    text-align: center;
+}
+
+
+
+

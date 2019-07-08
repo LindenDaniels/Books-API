@@ -34,14 +34,16 @@ function displayResults(responseJson, maxResults) {
         $('#results-list').append(
             /*GBS_insertPreviewButtonPopup('ISBN:0738531367')*/
             
-        `<li>
+        `<li class="result-display">
           <p>${responseJson.items[i].volumeInfo.industryIdentifiers[1].identifier}</p>
           <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
-          <h3>${responseJson.items[i].volumeInfo.title}</h3>
+          <h1>${responseJson.items[i].volumeInfo.title}</h1>
           <h2>${responseJson.items[i].volumeInfo.authors}</h2>
           <p>${responseJson.items[i].volumeInfo.description}</p>
-          <a href="${responseJson.items[i].saleInfo.buyLink}">Buy this Book</a>
+          <div class="hold-buttons">
           <input type="submit" class="preview-button" id="book-preview" value="Preview This Book">
+          <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
+          </div>
           </li>
           `);
         };
