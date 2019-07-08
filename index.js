@@ -20,30 +20,31 @@ function formatQueryParams(params) {
 //    }
 // google.books.setOnLoadCallback(initialize);
 
+
+
 function displayResults(responseJson, maxResults) {
     
     console.log(`displayResults ran`);
     console.log(responseJson);
     $('#results-list').empty();
-    
+    $.getScript("book-viewer-index.js")
+
     for (let i = 0; i < responseJson.items.length & i < maxResults; i++){
-        
+
         $('#results-list').append(
-            `
-          <li>
+            /*GBS_insertPreviewButtonPopup('ISBN:0738531367')*/
+            
+        `<li>
           <p>${responseJson.items[i].volumeInfo.industryIdentifiers[1].identifier}</p>
           <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
           <h3>${responseJson.items[i].volumeInfo.title}</h3>
           <h2>${responseJson.items[i].volumeInfo.authors}</h2>
           <p>${responseJson.items[i].volumeInfo.description}</p>
-          
           <a href="${responseJson.items[i].saleInfo.buyLink}">Buy this Book</a>
           <input type="submit" class="preview-button" id="book-preview" value="Preview This Book">
-          </li>`)
-        
+          </li>
+          `);
         };
-
-        
       $('#search-results').removeClass('hidden');
 };
 
@@ -51,13 +52,16 @@ function googleBookViewer() {
     console.log(`'googleBookViewer ran'`)
     $('#results-list').on('click', '#book-preview', function(event)  {
         event.preventDefault();
-        location.assign("bookViewer.html");
+        window.open("bookViewer.html");
     });
     }
-
-
-
-
+function handleBackButton() {
+    console.log(`'handleBackButton ran'`);
+    $('.back-button').on('click', (event => {
+        event.preventDefault();
+        history.back(-1);
+    }))
+}
 function getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, freeBooks, maxResults = 5) {
     
     console.log(`getBooks ran`);
@@ -114,7 +118,10 @@ $('form').submit (event => {
     
     getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, /*freeBooks,*/ maxResults);
     googleBookViewer();
+   
 });
 }
 $(watchForm);
+handleBackButton();
+
 });

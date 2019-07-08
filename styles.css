@@ -45,3 +45,7 @@ label {
       flex-direction: row;
       display: block;
   }
+  iframe {
+      height: 800px;
+      width: 800px;
+  }
