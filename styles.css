@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 body {
-   background-color: #995dba;
-   color: #ffffff;
+   background-color: #020202;
+   color: #f4f8f5;
 }
 
 .form-container {
@@ -41,6 +41,9 @@ label {
 .hidden {
     display: none;
   }
+.not-hidden {
+    display: block;
+}
   .search-options {
       flex-direction: row;
       display: block;
@@ -53,10 +56,16 @@ label {
   justify-content: space-between;
 }
 .result-display {
+    background: #343432;
+    color: #f4f8f5
     
     flex: 2;
     padding: 45px;
     flex-basis: 50%;
+    max-width: 50%;
+}
+#media-results {
+    background: white;
 }
 .result-display img {
     display: block;
@@ -73,6 +82,10 @@ label {
 }
 h2 {
     text-align: center;
+}
+.result-display img {
+    max-width: 200px;
+    max-height: 200px;
 }
 
 

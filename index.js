@@ -1,85 +1,120 @@
 'use strict';
+
+    
+const rapidApiKey = '185cf93378mshac80b72e1951906p101c0ajsn94eb1a12e125';
 const apiKey = 'AIzaSyByBhHS863v3SY7Bu6FXv0NuAJYir6aN9g';
 const searchURL = 'https://www.googleapis.com/books/v1/volumes';
+const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
 
 $(document).ready(function () {
 
-function formatQueryParams(params) {
+function formatQueryParamsBooks(params) {
     console.log(`formatQueryParams ran`);
     const queryItems = Object.keys(params)
     .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 }
 
-// google.books.load();
-//  function initialize() {
-    //  console.log(`initialize ran`);
-    // var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-    //  viewer.load('ISBN:0738531367');
-    
-//    }
-// google.books.setOnLoadCallback(initialize);
+function formatQueryParamsMedia(params) {
+    console.log(`formatQueryParams ran`);
+    const queryItems = Object.keys(params)
+    .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    return queryItems.join('&');
+}
 
 
+function handleBookDescriptionDisplay() {
+$('#results-list').on('click', '.show-book',
+function(event) {
+    event.preventDefault();
+    const bookDescription = $('#book-description')
+    if (bookDescription.hasClass('hidden')) {
+    bookDescription.removeClass('hidden').addClass('not-hidden');
+    } else { (bookDescription.removeClass('not-hidden').addClass('hidden'))
 
-function displayResults(responseJson, maxResults) {
+    }
+})
+}
+
+function displayResults(responseJson, maxResults = 3) {
     
     console.log(`displayResults ran`);
     console.log(responseJson);
     $('#results-list').empty();
-    $.getScript("book-viewer-index.js")
+   
 
     for (let i = 0; i < responseJson.items.length & i < maxResults; i++){
 
         $('#results-list').append(
-            /*GBS_insertPreviewButtonPopup('ISBN:0738531367')*/
             
         `<li class="result-display">
-          <p>${responseJson.items[i].volumeInfo.industryIdentifiers[1].identifier}</p>
           <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
-          <h1>${responseJson.items[i].volumeInfo.title}</h1>
-          <h2>${responseJson.items[i].volumeInfo.authors}</h2>
-          <p>${responseJson.items[i].volumeInfo.description}</p>
+          <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
+          <button class="show-book">Book Description</button>
+          <p id="book-description" class="hidden">${responseJson.items[i].volumeInfo.description}</p>
           <div class="hold-buttons">
-          <input type="submit" class="preview-button" id="book-preview" value="Preview This Book">
+          
           <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
+          
+          
+
           </div>
           </li>
           `);
         };
+       
+      handleBookDescriptionDisplay() 
       $('#search-results').removeClass('hidden');
+      
 };
 
-function googleBookViewer() {
-    console.log(`'googleBookViewer ran'`)
-    $('#results-list').on('click', '#book-preview', function(event)  {
-        event.preventDefault();
-        window.open("bookViewer.html");
-    });
+    
+
+    
+
+function displayMediaResults(responseJson) {
+    
+    console.log(`displayMediaResults ran`);
+    console.log(responseJson);
+    $('#media-results').empty();
+   
+
+    for (let i = 0; i < responseJson.results.length ; i++) {
+        
+
+       $('#media-results').append(
+            
+        `<li class="result-display">
+          <img src="${responseJson.results[i].picture} class="media-picture" alt="Poster">
+          <h1>${responseJson.results[i].name}</h1>`)
+    for   (let j = 0; j < responseJson.results[i].locations.length ; j++)  {  
+        $('#media-results').append(  
+            `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" alt="${responseJson.results[i].locations[i].display_name}"></a>
+            </li>`
+
+        );
+          
+        };
+     
+    } 
+     
+
+     
+        
+      $('#search-results').removeClass('hidden');
     }
-function handleBackButton() {
-    console.log(`'handleBackButton ran'`);
-    $('.back-button').on('click', (event => {
-        event.preventDefault();
-        history.back(-1);
-    }))
-}
-function getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, freeBooks, maxResults = 5) {
+
+function getBooks(searchTerm) {
     
     console.log(`getBooks ran`);
     const params = {
         q: searchTerm,
-        intitle: titleName,
-        inauthor: authorName,
-        subject: subjectName,
-        inpublisher: publisherName,
-        isbn: isbnNumber,
-        /*filter: freeBooks,*/
-
-        maxResults: maxResults
+        
     };
-    const queryString = formatQueryParams(params)
+    const queryString = formatQueryParamsBooks(params)
     const url = searchURL + '?' + queryString + '&key=' + apiKey;
+    
+
     console.log(url);
 
     fetch(url)
@@ -89,41 +124,51 @@ function getBooks(searchTerm, titleName, authorName, subjectName, publisherName,
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => displayResults(responseJson, maxResults))
+    .then(responseJson => displayResults(responseJson, /*maxResults*/))
     .catch(err => {
         $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }
-/*function handleFreeBooks() {
-    console.log(`handleFreeBooks ran`);
-    if ($('#js-free-only').val() == true) {
-        let freeBooks = free-ebooks;
-        
-    }
-}*/
+
+function getMedia(searchTerm) {
+    
+    console.log(`getMedia ran`);
+    const countryString = 'us';
+    const params = {
+        term: searchTerm,
+        country: countryString
+    };
+    const queryString = formatQueryParamsMedia(params)
+    const url = mediaURL + '?' + queryString;
+    console.log(url);
+
+    const options = {
+        headers: new Headers({
+          "X-RapidApi-Key": rapidApiKey})
+      };
+
+    fetch(url, options)
+    .then(response => {
+        if (response.ok) {
+            return response.json();  
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => displayMediaResults(responseJson, /*maxResults*/))
+    .catch(err => {
+        $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    });
+}
+
 function watchForm() {
     console.log(`watchForm ran`);
 $('form').submit (event => {
     event.preventDefault();
     
-    /*handleFreeBooks();*/
-   
     const searchTerm = $('#js-search-term').val();
-    const maxResults = $('#js-max-results').val();
-    const titleName = $('#js-title-name').val();
-    const authorName = $('#js-author-name').val();
-    const subjectName = $('#js-subject-name').val();
-    const publisherName = $('#js-publisher-name').val();
-    const isbnNumber = $('#js-isbn-number').val();
-
-   
-    
-    getBooks(searchTerm, titleName, authorName, subjectName, publisherName, isbnNumber, /*freeBooks,*/ maxResults);
-    googleBookViewer();
-   
+    getMedia(searchTerm);
+    getBooks(searchTerm); 
 });
 }
 $(watchForm);
-handleBackButton();
-
 });
