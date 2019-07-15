@@ -7,6 +7,29 @@ const searchURL = 'https://www.googleapis.com/books/v1/volumes';
 const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
 
 $(document).ready(function () {
+function handleChangingWords() {
+    console.log('`handleChangingWords ran`')
+    let changingWords = new Array('You', 'Game of Thrones', 'Legion');
+    let i = 0;
+    document.getElementById("js-search-term").append(
+       
+            `${changingWords[ i ]}`);
+        if( i < changingWords.length ) {
+            i++;
+        } else {
+            i = 0;
+        }
+        
+    }
+    
+    let changeWords = setInterval(handleChangingWords, 1000);
+function handleChangeWords() {
+    changeWords;
+}
+
+
+
+
 
 function formatQueryParamsBooks(params) {
     console.log(`formatQueryParams ran`);
@@ -166,9 +189,12 @@ $('form').submit (event => {
     event.preventDefault();
     
     const searchTerm = $('#js-search-term').val();
+    handleChangeWords();
     getMedia(searchTerm);
     getBooks(searchTerm); 
+    
 });
 }
+
 $(watchForm);
 });
