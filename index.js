@@ -5,19 +5,20 @@ const rapidApiKey = '185cf93378mshac80b72e1951906p101c0ajsn94eb1a12e125';
 const apiKey = 'AIzaSyByBhHS863v3SY7Bu6FXv0NuAJYir6aN9g';
 const searchURL = 'https://www.googleapis.com/books/v1/volumes';
 const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
-
+let changingWords = new Array('You', 'Game of Thrones', 'Legion'),
+currentWord = 0;
 $(document).ready(function () {
 function handleChangingWords() {
     console.log('`handleChangingWords ran`')
-    let changingWords = new Array('You', 'Game of Thrones', 'Legion');
-    let i = 0;
+    
+    
     document.getElementById("js-search-term").append(
        
-            `${changingWords[ i ]}`);
-        if( i < changingWords.length ) {
-            i++;
+            `${changingWords[currentWord]}`);
+        if( currentWord < changingWords.length ) {
+            currentWord++;
         } else {
-            i = 0;
+            currentWord = 0;
         }
         
     }
