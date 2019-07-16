@@ -120,6 +120,30 @@ $(document).ready(function() {
                 
                 modal1.style.display = "block";
             })
+            $('#results-list').on('click', '#myBtn-2',
+            function(event) {
+                event.preventDefault();
+                
+                var modal1 = document.getElementById("myModal-2");
+                
+                modal1.style.display = "block";
+            })
+            $('#results-list').on('click', '#myBtn-3',
+            function(event) {
+                event.preventDefault();
+                
+                var modal1 = document.getElementById("myModal-3");
+                
+                modal1.style.display = "block";
+            })
+            $('#results-list').on('click', '#myBtn-4',
+            function(event) {
+                event.preventDefault();
+                
+                var modal1 = document.getElementById("myModal-4");
+                
+                modal1.style.display = "block";
+            })
     }
 
     openModal();
@@ -132,8 +156,15 @@ $(document).ready(function() {
             function(event) {
                 event.preventDefault();
                 var modal0 = document.getElementById("myModal-0");
-
                 modal0.style.display = "none";
+                var modal1 = document.getElementById("myModal-1");
+                modal1.style.display = "none";
+                var modal2 = document.getElementById("myModal-2");
+                modal2.style.display = "none";
+                var modal3 = document.getElementById("myModal-3");
+                modal3.style.display = "none";
+                var modal4 = document.getElementById("myModal-4");
+                modal4.style.display = "none";
             })
     }
     closeModal();
