@@ -89,7 +89,7 @@ $(document).ready(function() {
 </div>
           <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
           </div>
-          <div id="book-description-modal" class="hidden">${responseJson.items[i].volumeInfo.description}</p>
+          
           </li>
           `);
         };
