@@ -69,6 +69,8 @@ function(event) {
 })
 }
 
+
+
 function displayResults(responseJson, maxResults = 5) {
     
     console.log(`displayResults ran`);
@@ -85,9 +87,21 @@ function displayResults(responseJson, maxResults = 5) {
           <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
           <div class="hold-buttons">
           <button class="show-book">Book Description</button>
+          <button id="myBtn">Open Modal</button>
+
+
+<div id="myModal" class="modal">
+
+  
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
           <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
           </div>
-          <p id="book-description" class="hidden">${responseJson.items[i].volumeInfo.description}</p>
+          <div id="book-description-modal" class="hidden">${responseJson.items[i].volumeInfo.description}</p>
           </li>
           `);
         };
@@ -96,6 +110,43 @@ function displayResults(responseJson, maxResults = 5) {
       $('#search-results').removeClass('hidden');
       
 };   
+
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+
+function openModal() {
+// When the user clicks on the button, open the modal 
+$('#results-list').on('click', '#myBtn',
+function(event) {
+    event.preventDefault();
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+})
+}
+openModal();
+function closeModal() {
+    var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+$('#results-list').on('click', 'span',
+function(event) {
+    event.preventDefault();
+    var modal = document.getElementById("myModal");
+   
+  modal.style.display = "none";
+})
+}
+closeModal();
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 function displayMediaResults(responseJson) {
     
