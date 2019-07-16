@@ -27,6 +27,15 @@ function handleChangingWords() {
 function handleChangeWords() {
     changeWords;
 }
+function stopChangingWords() {
+    console.log('`stopChangingWords ran`');
+    $('.search-box').click(function(event){
+        event.preventDefault();
+        clearInterval(changeWords);
+    });
+
+}
+stopChangingWords();
 
 
 
@@ -192,7 +201,9 @@ $('form').submit (event => {
     event.preventDefault();
     
     const searchTerm = $('#js-search-term').val();
+   
     handleChangeWords();
+    
     getMedia(searchTerm);
     getBooks(searchTerm); 
     
