@@ -71,7 +71,7 @@ $(document).ready(function() {
             $('#results-list').append(
 
                 `<li class="result-display">
-          <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
+          <a href="${responseJson.items[i].volumeInfo.previewLink}"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book"></a>
           <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
           <div class="hold-buttons">
           
@@ -190,10 +190,9 @@ $(document).ready(function() {
           <h1>${responseJson.results[i].name}</h1>`)
             for (let j = 0; j < responseJson.results[i].locations.length; j++) {
                 $('#media-results').append(
-                    `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" alt="${responseJson.results[i].locations[i].display_name}"></a>
-            </li>`
-
-                );
+                `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" alt="${responseJson.results[i].locations[i].display_name}"></a>
+            </li>`)
+                
 
             };
 
