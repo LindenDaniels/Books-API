@@ -9,10 +9,10 @@ let changingWords = new Array('You', 'Game of Thrones', 'Legion'),
 currentWord = 0;
 $(document).ready(function () {
 function handleChangingWords() {
-    console.log('`handleChangingWords ran`')
+    console.log('`handleChangingWords ran`');
     
     
-    document.getElementById("js-search-term").append(
+    $('#js-search-term').val(
        
             `${changingWords[currentWord]}`);
         if( currentWord < changingWords.length ) {
@@ -35,14 +35,14 @@ function handleChangeWords() {
 function formatQueryParamsBooks(params) {
     console.log(`formatQueryParams ran`);
     const queryItems = Object.keys(params)
-    .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
     return queryItems.join('&');
 }
 
 function formatQueryParamsMedia(params) {
     console.log(`formatQueryParams ran`);
     const queryItems = Object.keys(params)
-    .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .map (key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
     return queryItems.join('&');
 }
 
@@ -184,8 +184,10 @@ function getMedia(searchTerm) {
     });
 }
 
+
 function watchForm() {
     console.log(`watchForm ran`);
+   
 $('form').submit (event => {
     event.preventDefault();
     
