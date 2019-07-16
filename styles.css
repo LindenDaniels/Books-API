@@ -57,15 +57,17 @@ label {
 }
 .result-display {
     background: #343432;
-    color: #f4f8f5
-    
+    color: #f4f8f5;
+    display: inline-block;
     flex: 2;
     padding: 45px;
     flex-basis: 50%;
-    max-width: 50%;
+    
 }
 #media-results {
     background: white;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 .result-display img {
     display: block;

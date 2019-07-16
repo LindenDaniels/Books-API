@@ -69,7 +69,7 @@ function(event) {
 })
 }
 
-function displayResults(responseJson, maxResults = 3) {
+function displayResults(responseJson, maxResults = 5) {
     
     console.log(`displayResults ran`);
     console.log(responseJson);
@@ -83,15 +83,11 @@ function displayResults(responseJson, maxResults = 3) {
         `<li class="result-display">
           <img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book">
           <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
-          <button class="show-book">Book Description</button>
-          <p id="book-description" class="hidden">${responseJson.items[i].volumeInfo.description}</p>
           <div class="hold-buttons">
-          
+          <button class="show-book">Book Description</button>
           <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
-          
-          
-
           </div>
+          <p id="book-description" class="hidden">${responseJson.items[i].volumeInfo.description}</p>
           </li>
           `);
         };
@@ -99,11 +95,7 @@ function displayResults(responseJson, maxResults = 3) {
       handleBookDescriptionDisplay() 
       $('#search-results').removeClass('hidden');
       
-};
-
-    
-
-    
+};   
 
 function displayMediaResults(responseJson) {
     
@@ -111,12 +103,8 @@ function displayMediaResults(responseJson) {
     console.log(responseJson);
     $('#media-results').empty();
    
-
     for (let i = 0; i < responseJson.results.length ; i++) {
-        
-
-       $('#media-results').append(
-            
+       $('#media-results').append(   
         `<li class="result-display">
           <img src="${responseJson.results[i].picture} class="media-picture" alt="Poster">
           <h1>${responseJson.results[i].name}</h1>`)
