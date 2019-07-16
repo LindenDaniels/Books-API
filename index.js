@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
-
+            
             $('#results-list').append(
 
                 `<li class="result-display">
@@ -75,18 +75,14 @@ $(document).ready(function() {
           <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
           <div class="hold-buttons">
           
-          <button id="myBtn">Book Description</button>
-
-
-<div id="myModal" class="modal">
-
-  
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>${responseJson.items[i].volumeInfo.description}</p>
-  </div>
-
-</div>
+          <button id="myBtn-${i}">Book Description</button>
+          <div id="myModal-${i}" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>${responseJson.items[i].volumeInfo.description}</p>
+          </div>
+          
+          </div>
           <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
           </div>
           
@@ -101,20 +97,33 @@ $(document).ready(function() {
 
 
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    
 
     // Get the <span> element that closes the modal
 
     function openModal() {
+       
         // When the user clicks on the button, open the modal 
-        $('#results-list').on('click', '#myBtn',
+        $('#results-list').on('click', '#myBtn-0',
             function(event) {
                 event.preventDefault();
-                var modal = document.getElementById("myModal");
-                modal.style.display = "block";
+                var modal0 = document.getElementById("myModal-0");
+                
+                modal0.style.display = "block";
+                
+            })
+            $('#results-list').on('click', '#myBtn-1',
+            function(event) {
+                event.preventDefault();
+                
+                var modal1 = document.getElementById("myModal-1");
+                
+                modal1.style.display = "block";
             })
     }
+
     openModal();
+   
 
     function closeModal() {
         var span = document.getElementsByClassName("close")[0];
@@ -122,9 +131,9 @@ $(document).ready(function() {
         $('#results-list').on('click', 'span',
             function(event) {
                 event.preventDefault();
-                var modal = document.getElementById("myModal");
+                var modal0 = document.getElementById("myModal-0");
 
-                modal.style.display = "none";
+                modal0.style.display = "none";
             })
     }
     closeModal();
