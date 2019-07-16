@@ -87,7 +87,7 @@ function displayResults(responseJson, maxResults = 5) {
           <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
           <div class="hold-buttons">
           <button class="show-book">Book Description</button>
-          <button id="myBtn">Open Modal</button>
+          <button id="myBtn">Book Description</button>
 
 
 <div id="myModal" class="modal">
@@ -95,7 +95,7 @@ function displayResults(responseJson, maxResults = 5) {
   
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p>${responseJson.items[i].volumeInfo.description}</p>
   </div>
 
 </div>
