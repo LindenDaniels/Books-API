@@ -83,7 +83,7 @@ $(document).ready(function() {
           </div>
           
           </div>
-          <a href="${responseJson.items[i].saleInfo.buyLink}"><button>Buy this Book</button></a>
+         
           </div>
           
           </li>
