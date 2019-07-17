@@ -5,7 +5,7 @@ const rapidApiKey = '185cf93378mshac80b72e1951906p101c0ajsn94eb1a12e125';
 const apiKey = 'AIzaSyByBhHS863v3SY7Bu6FXv0NuAJYir6aN9g';
 const searchURL = 'https://www.googleapis.com/books/v1/volumes';
 const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
-let changingWords = new Array('You', 'Game of Thrones', 'Legion'),
+let changingWords = new Array('You', 'Game of Thrones', 'Legion', 'Handmaid\'s Tale'),
     currentWord = 0;
 $(document).ready(function() {
     function handleChangingWords() {
@@ -15,7 +15,7 @@ $(document).ready(function() {
         $('#js-search-term').val(
 
             `${changingWords[currentWord]}`);
-        if (currentWord < changingWords.length) {
+        if (currentWord < changingWords.length - 1) {
             currentWord++;
         } else {
             currentWord = 0;
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     }
 
-    let changeWords = setInterval(handleChangingWords, 1000);
+    let changeWords = setInterval(handleChangingWords, 1500);
 
     function handleChangeWords() {
         changeWords;
@@ -63,8 +63,8 @@ $(document).ready(function() {
 
         console.log(`displayResults ran`);
         console.log(responseJson);
+       
         $('#results-list').empty();
-
 
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
             
@@ -182,27 +182,23 @@ $(document).ready(function() {
         console.log(`displayMediaResults ran`);
         console.log(responseJson);
         $('#media-results').empty();
-
+        
         for (let i = 0; i < responseJson.results.length; i++) {
+            let locs = "";
+            for (let j = 0; j < responseJson.results[i].locations.length; j++) {
+                locs += `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" alt="${responseJson.results[i].locations[i].display_name}"></a>`
+            };
             $('#media-results').append(
                 `<li class="result-display">
           <img src="${responseJson.results[i].picture} class="media-picture" alt="Poster">
-          <h1>${responseJson.results[i].name}</h1>`)
-            for (let j = 0; j < responseJson.results[i].locations.length; j++) {
-                $('#media-results').append(
-                `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" alt="${responseJson.results[i].locations[i].display_name}"></a>
-            </li>`)
-                
+          <h1>${responseJson.results[i].name}</h1>` + locs + `</li>`)   
 
             };
 
         }
 
-
-
-
         $('#search-results').removeClass('hidden');
-    }
+    
 
     function getBooks(searchTerm) {
 
