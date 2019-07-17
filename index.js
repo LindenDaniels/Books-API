@@ -1,6 +1,5 @@
 'use strict';
 
-
 const rapidApiKey = '185cf93378mshac80b72e1951906p101c0ajsn94eb1a12e125';
 const apiKey = 'AIzaSyByBhHS863v3SY7Bu6FXv0NuAJYir6aN9g';
 const searchURL = 'https://www.googleapis.com/books/v1/volumes';
@@ -8,21 +7,17 @@ const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.
 let changingWords = new Array('You', 'Game of Thrones', 'Legion', 'Handmaid\'s Tale'),
     currentWord = 0;
     
-   
-
 $(document).ready(function() {
     function handleChangingWords() {
         console.log('`handleChangingWords ran`');
 
         $('#js-search-term').val(
-
             `${changingWords[currentWord]}`);
         if (currentWord < changingWords.length - 1) {
             currentWord++;
         } else {
             currentWord = 0;
         }
-
     }
 
     let changeWords = setInterval(handleChangingWords, 1500);
@@ -41,9 +36,6 @@ $(document).ready(function() {
     }
     stopChangingWords();
 
-
-
-
     function formatQueryParamsBooks(params) {
         console.log(`formatQueryParams ran`);
         const queryItems = Object.keys(params)
@@ -58,9 +50,6 @@ $(document).ready(function() {
         return queryItems.join('&');
     }
 
-
-
-
     function displayResults(responseJson, maxResults = 5) {
 
         console.log(`displayResults ran`);
@@ -74,28 +63,22 @@ $(document).ready(function() {
         } else {
         
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
-            
            
             $('#results-list').append(
-
-                `<li class="result-display">
-          <a href="${responseJson.items[i].volumeInfo.previewLink}"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
+        `<li class="result-display">
+          <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
           <h3>${responseJson.items[i].volumeInfo.authors}</h3>
            
           <div class="hold-buttons">
-          
           <button id="myBtn-${i}">Book Description</button>
           <div id="myModal-${i}" class="modal">
           <div class="modal-content">
           <span class="close">&times;</span>
           <p>${responseJson.items[i].volumeInfo.description}</p>
           </div>
-          
           </div>
-         
           </div>
-          
           </li>
           `);
         };
