@@ -169,11 +169,21 @@ h3 {
     text-decoration: none;
     cursor: pointer;
   }
+  button:hover {
+      cursor: pointer;
+  }
+  a:hover {
+      cursor: pointer;
+  }
+  .media-img {
+    color: #845E98;
+
+  }
 
 @media screen and (max-width: 1000px) {
     .media-picture {
-        max-width: 400px;
-        max-height: 400px;
+        max-width: 300px;
+        max-height: 300px;
     }
     .result-display {
         flex: 1;
