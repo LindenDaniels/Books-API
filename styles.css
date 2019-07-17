@@ -127,7 +127,7 @@ h3 {
     text-align: center;
     color: #B6D3CB;
 }
-.result-display img {
+.media-picture {
     max-width: 800px;
     max-height: 800px;
 }
@@ -169,5 +169,11 @@ h3 {
     cursor: pointer;
   }
 
+@media screen and (max-width: 1000px) {
+    .media-picture {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
 
 

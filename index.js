@@ -206,7 +206,7 @@ $(document).ready(function() {
             };
             $('#media-results').append(
                 `<li class="result-display">
-          <img src="${responseJson.results[i].picture} class="media-picture" alt="Picture of TV show or movie">
+          <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
           <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</li>`)   
 
             };
