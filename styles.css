@@ -27,6 +27,7 @@ body {
 .form-container {
     margin: auto;
     max-width: 800px;
+    background: rgba(0, 0, 0, 0.50);
     
 }
 
@@ -46,7 +47,7 @@ ul {
     
 }
 #search-results {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.50);
 }
 .search-term {
     flex-basis: 100%;
