@@ -171,8 +171,8 @@ h3 {
 
 @media screen and (max-width: 1000px) {
     .media-picture {
-        max-width: 200px;
-        max-height: 200px;
+        max-width: 400px;
+        max-height: 400px;
     }
 }
 

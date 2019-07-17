@@ -236,7 +236,7 @@ $(document).ready(function() {
                 }
                 throw new Error(response.statusText);
             })
-            .then(responseJson => displayResults(responseJson, /*maxResults*/ ))
+            .then(responseJson => displayResults(responseJson))
             .catch(err => {
                 $('#js-error-message').text(`Something went wrong: ${err.message}`);
             });
