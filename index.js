@@ -79,7 +79,7 @@ $(document).ready(function() {
             $('#results-list').append(
 
                 `<li class="result-display">
-          <a href="${responseJson.items[i].volumeInfo.previewLink}"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="The book"></a>
+          <a href="${responseJson.items[i].volumeInfo.previewLink}"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
           <div class="hold-buttons">
           
@@ -204,7 +204,7 @@ $(document).ready(function() {
             };
             $('#media-results').append(
                 `<li class="result-display">
-          <img src="${responseJson.results[i].picture} class="media-picture" alt="Poster">
+          <img src="${responseJson.results[i].picture} class="media-picture" alt="Picture of TV show or movie">
           <h1>${responseJson.results[i].name}</h1>` + locs + `</li>`)   
 
             };
