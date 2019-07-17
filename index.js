@@ -80,7 +80,9 @@ $(document).ready(function() {
 
                 `<li class="result-display">
           <a href="${responseJson.items[i].volumeInfo.previewLink}"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
-          <h2>${responseJson.items[i].volumeInfo.title} by ${responseJson.items[i].volumeInfo.authors} </h2>
+          <h2>${responseJson.items[i].volumeInfo.title}</h2>
+          <h3>${responseJson.items[i].volumeInfo.authors}</h3>
+           
           <div class="hold-buttons">
           
           <button id="myBtn-${i}">Book Description</button>
@@ -205,7 +207,7 @@ $(document).ready(function() {
             $('#media-results').append(
                 `<li class="result-display">
           <img src="${responseJson.results[i].picture} class="media-picture" alt="Picture of TV show or movie">
-          <h1>${responseJson.results[i].name}</h1>` + locs + `</li>`)   
+          <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</li>`)   
 
             };
 

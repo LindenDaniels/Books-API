@@ -2,13 +2,32 @@
     box-sizing: border-box;
 }
 body {
-   background-color: #020202;
-   color: #f4f8f5;
+    background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+	
+   url(https://i.ibb.co/3psgCLz/ufo-2144977.jpg); 
+   
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   
+   
+   
+    background-size: cover;
+	
+	color: #84B2A5;
+	font-size: 16px;
+}
+.media-stuff {
+    color: #FFFBDB;
 }
 
 .form-container {
     margin: auto;
     max-width: 800px;
+    
 }
 
 .search-box {
@@ -23,7 +42,11 @@ ul {
     display: flex;
     padding: 5px;
     flex-wrap: wrap; 
+    margin: auto;
     
+}
+#search-results {
+    background: rgba(0, 0, 0, 0.75);
 }
 .search-term {
     flex-basis: 100%;
@@ -97,6 +120,11 @@ label {
 }
 h2 {
     text-align: center;
+    color: #845E98;
+}
+h3 {
+    text-align: center;
+    color: #B6D3CB;
 }
 .result-display img {
     max-width: 800px;
