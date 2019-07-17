@@ -7,10 +7,12 @@ const searchURL = 'https://www.googleapis.com/books/v1/volumes';
 const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
 let changingWords = new Array('You', 'Game of Thrones', 'Legion', 'Handmaid\'s Tale'),
     currentWord = 0;
+    
+   
+
 $(document).ready(function() {
     function handleChangingWords() {
         console.log('`handleChangingWords ran`');
-
 
         $('#js-search-term').val(
 
@@ -28,7 +30,7 @@ $(document).ready(function() {
     function handleChangeWords() {
         changeWords;
     }
-
+    
     function stopChangingWords() {
         console.log('`stopChangingWords ran`');
         $('.search-box').click(function(event) {
@@ -65,9 +67,15 @@ $(document).ready(function() {
         console.log(responseJson);
        
         $('#results-list').empty();
-
+        if (responseJson.totalItems === 0) {
+            $('#results-list').append(
+                `<p class="no-results">No books found. Please try your search again.</p>`
+            )
+        } else {
+        
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
             
+           
             $('#results-list').append(
 
                 `<li class="result-display">
@@ -94,6 +102,7 @@ $(document).ready(function() {
         $('#search-results').removeClass('hidden');
 
     };
+}
 
 
     // Get the button that opens the modal
@@ -182,6 +191,11 @@ $(document).ready(function() {
         console.log(`displayMediaResults ran`);
         console.log(responseJson);
         $('#media-results').empty();
+        if (responseJson.results.length === 0) {
+            $('#media-results').append(
+                `<p class="no-results">No movies or TV shows found. Please try your search again.</p>`
+            )
+        } else {
         
         for (let i = 0; i < responseJson.results.length; i++) {
             let locs = "";
@@ -196,9 +210,9 @@ $(document).ready(function() {
             };
 
         }
-
-        $('#search-results').removeClass('hidden');
     
+        $('#search-results').removeClass('hidden');
+    }
 
     function getBooks(searchTerm) {
 
@@ -264,7 +278,7 @@ $(document).ready(function() {
         $('form').submit(event => {
             event.preventDefault();
 
-            const searchTerm = $('#js-search-term').val();
+            let searchTerm = $('#js-search-term').val();
 
             handleChangeWords();
 

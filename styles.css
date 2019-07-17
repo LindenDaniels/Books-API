@@ -58,11 +58,24 @@ label {
 .result-display {
     
     color: #f4f8f5;
-    
     flex: 2;
-    padding: 30px;
-    
-    
+    padding: 30px;  
+}
+.search-text {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+.no-results {
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+}
+.no-results-2 {
+    font-size: 20px;
+    margin: auto;
+}
+.change-opacity {
+    opacity: 0.5;
 }
 #media-results {
     
