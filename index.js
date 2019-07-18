@@ -50,7 +50,7 @@ $(document).ready(function() {
         return queryItems.join('&');
     }
 
-    function displayResults(responseJson, maxResults = 5) {
+    function displayResults(responseJson, maxResults = 4) {
 
         console.log(`displayResults ran`);
         console.log(responseJson);

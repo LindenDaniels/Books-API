@@ -85,9 +85,7 @@ label {
 }
 
 .result-display {
-    
-    
-    flex: 2;
+    flex: 1;
     padding: 30px;  
     flex-wrap: wrap;
 }
