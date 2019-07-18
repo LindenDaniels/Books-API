@@ -23,7 +23,8 @@ body {
 	font-size: 16px;
 }
 .media-stuff {
-    color: #FFFBDB;
+    
+    color: #845E98;
 }
 
 .form-container {
@@ -81,6 +82,7 @@ label {
   align-content: space-between;
   justify-content: space-between;
 }
+
 .result-display {
     
     
@@ -128,7 +130,7 @@ h2 {
 }
 h3 {
     text-align: center;
-    color: #B6D3CB;
+    color: #845E98;
 }
 .media-picture {
     max-width: 800px;
@@ -178,7 +180,8 @@ h3 {
       cursor: pointer;
   }
   .media-img {
-    color: #845E98;
+    background-color: #347966;
+    padding: 10px;
 
   }
 
