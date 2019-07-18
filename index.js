@@ -63,10 +63,8 @@ $(document).ready(function() {
         } else {
         
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
-            let holdAuthors = "";
-            for (let j = 0; j < responseJson.items[i].authors.length; j++) {
-                holdAuthors += `<h3>${responseJson.items[i].volumeInfo.authors[j]}</h3>`
-            }
+         let holdAuthors = `${responseJson.items[i].volumeInfo.authors}`
+         let joinAuthors = responseJson.items[i].volumeInfo.authors.join(", ")
          let holdDescription =  `${responseJson.items[i].volumeInfo.description}`
          
          if (typeof responseJson.items[i].volumeInfo.description == "undefined") {
@@ -75,8 +73,8 @@ $(document).ready(function() {
             $('#results-list').append(
         `<li class="result-display">
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
-          <h2>${responseJson.items[i].volumeInfo.title}</h2>` + holdAuthors + `
-          
+          <h2>${responseJson.items[i].volumeInfo.title}</h2>
+          <h3>${joinAuthors}</h3>
            
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
@@ -90,8 +88,6 @@ $(document).ready(function() {
           </li>
           `);
         };
-    
-
 
 
         $('#search-results').removeClass('hidden');
