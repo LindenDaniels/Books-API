@@ -190,6 +190,9 @@ h3 {
     .result-display {
         flex: 1;
     }
+    body {
+        height: 100%;
+    }
 }
 
 
