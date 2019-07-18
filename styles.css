@@ -60,6 +60,7 @@ h1 {
     padding: 20px;
     flex-basis: 100%;
     text-align: center;
+    font-family: 'Cinzel', serif;
 }
 label {
     flex-basis: 100%;
@@ -119,6 +120,7 @@ label {
     font-size: 18px;
     line-height: 160%;
     text-align: left;
+    font-family: 'Raleway', sans-serif;
 }
 .hold-buttons {
     display: flex;
@@ -127,10 +129,13 @@ label {
 h2 {
     text-align: center;
     color: #845E98;
+    font-family: 'Cinzel', serif;
+
 }
 h3 {
     text-align: center;
     color: #845E98;
+    font-family: 'Raleway', sans-serif;
 }
 .media-picture {
     max-width: 800px;
