@@ -64,9 +64,9 @@ $(document).ready(function() {
         
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
          let holdDescription =  `${responseJson.items[i].volumeInfo.description}`
-         console.log(holdDescription);
-         if (typeof holdDescription == "undefined") {
-             holdDescription = "This book does not have a description.";
+         
+         if (typeof responseJson.items[i].volumeInfo.description == "undefined") {
+            holdDescription = "This book does not have a description.";
          }
             $('#results-list').append(
         `<li class="result-display">
