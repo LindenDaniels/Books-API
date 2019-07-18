@@ -105,41 +105,31 @@ $(document).ready(function() {
         $('#results-list').on('click', '#myBtn-0',
             function(event) {
                 event.preventDefault();
-                var modal0 = document.getElementById("myModal-0");
-                
+                let modal0 = document.getElementById("myModal-0");
                 modal0.style.display = "block";
-                
             })
             $('#results-list').on('click', '#myBtn-1',
             function(event) {
                 event.preventDefault();
-                
-                var modal1 = document.getElementById("myModal-1");
-                
+                let modal1 = document.getElementById("myModal-1");
                 modal1.style.display = "block";
             })
             $('#results-list').on('click', '#myBtn-2',
             function(event) {
                 event.preventDefault();
-                
-                var modal1 = document.getElementById("myModal-2");
-                
+                let modal1 = document.getElementById("myModal-2");
                 modal1.style.display = "block";
             })
             $('#results-list').on('click', '#myBtn-3',
             function(event) {
                 event.preventDefault();
-                
-                var modal1 = document.getElementById("myModal-3");
-                
+                let modal1 = document.getElementById("myModal-3");
                 modal1.style.display = "block";
             })
             $('#results-list').on('click', '#myBtn-4',
             function(event) {
                 event.preventDefault();
-                
-                var modal1 = document.getElementById("myModal-4");
-                
+                let modal1 = document.getElementById("myModal-4");
                 modal1.style.display = "block";
             })
     }
@@ -153,15 +143,15 @@ $(document).ready(function() {
         $('#results-list').on('click', 'span',
             function(event) {
                 event.preventDefault();
-                var modal0 = document.getElementById("myModal-0");
+                let modal0 = document.getElementById("myModal-0");
                 modal0.style.display = "none";
-                var modal1 = document.getElementById("myModal-1");
+                let modal1 = document.getElementById("myModal-1");
                 modal1.style.display = "none";
-                var modal2 = document.getElementById("myModal-2");
+                let modal2 = document.getElementById("myModal-2");
                 modal2.style.display = "none";
-                var modal3 = document.getElementById("myModal-3");
+                let modal3 = document.getElementById("myModal-3");
                 modal3.style.display = "none";
-                var modal4 = document.getElementById("myModal-4");
+                let modal4 = document.getElementById("myModal-4");
                 modal4.style.display = "none";
             })
     }
@@ -169,9 +159,25 @@ $(document).ready(function() {
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        var modal = document.getElementById("myModal");
-        if (event.target == modal) {
-            modal.style.display = "none";
+        let modal0 = document.getElementById("myModal-0");
+        if (event.target == modal0) {
+            modal0.style.display = "none";
+        }
+        let modal1 = document.getElementById("myModal-1");
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        let modal2 = document.getElementById("myModal-2");
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+        let modal3 = document.getElementById("myModal-3");
+        if (event.target == modal3) {
+            modal3.style.display = "none";
+        }
+        let modal4 = document.getElementById("myModal-4");
+        if (event.target == modal4) {
+            modal4.style.display = "none";
         }
     }
 
