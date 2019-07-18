@@ -54,7 +54,7 @@ $(document).ready(function() {
 
         console.log(`displayResults ran`);
         console.log(responseJson);
-       
+      
         $('#results-list').empty();
         if (responseJson.totalItems === 0) {
             $('#results-list').append(
@@ -63,7 +63,11 @@ $(document).ready(function() {
         } else {
         
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
-           
+         let holdDescription =  `${responseJson.items[i].volumeInfo.description}`
+         console.log(holdDescription);
+         if (typeof holdDescription == "undefined") {
+             holdDescription = "This book does not have a description.";
+         }
             $('#results-list').append(
         `<li class="result-display">
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
@@ -75,7 +79,7 @@ $(document).ready(function() {
           <div id="myModal-${i}" class="modal">
           <div class="modal-content">
           <span class="close">&times;</span>
-          <p>${responseJson.items[i].volumeInfo.description}</p>
+          <p>${holdDescription}</p>
           </div>
           </div>
           </div>
@@ -185,7 +189,7 @@ $(document).ready(function() {
         for (let i = 0; i < responseJson.results.length; i++) {
             let locs = "";
             for (let j = 0; j < responseJson.results[i].locations.length; j++) {
-                locs += `<a href="${responseJson.results[i].locations[j].url}" ><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a>`
+                locs += `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a>`
             };
             $('#media-results').append(
                 `<li class="result-display">
