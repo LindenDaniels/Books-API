@@ -200,7 +200,7 @@ $(document).ready(function() {
                 locs += `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a>`
             };
             $('#media-results').append(
-                `<div class="center-me><li class="result-display">
+                `<div class="center-me"><li class="result-display">
           <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
           <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</li></div>`)   
 
