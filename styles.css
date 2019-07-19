@@ -188,8 +188,11 @@ h3 {
     padding: 10px;
     color: blue;
   }
-  
 .center-me {
+    display: inline-block;
+
+}
+.center-me-2 {
 display: inline-block;
 margin-left: auto;
     margin-right: auto; 

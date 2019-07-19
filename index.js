@@ -195,10 +195,11 @@ $(document).ready(function() {
         } else {
         
         for (let i = 0; i < responseJson.results.length; i++) {
-            let locs = "";
-            for (let j = 0; j < responseJson.results[i].locations.length; j++) {
-                locs += `<div class="center-me"><a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a></div>`
-            };
+           let locs = `<div class="center-me-2">`;
+        for (let j = 0; j < responseJson.results[i].locations.length; j++) { 
+               locs += `<div class="center-me"><a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a></div>` 
+             };
+                locs += `</div>`;
             $('#media-results').append(
                 `<li class="result-display">
           <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
