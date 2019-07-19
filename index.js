@@ -197,10 +197,10 @@ $(document).ready(function() {
         for (let i = 0; i < responseJson.results.length; i++) {
             let locs = "";
             for (let j = 0; j < responseJson.results[i].locations.length; j++) {
-                locs += `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a>`
+                locs += `<div class="center-me"><a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a><div class="center-me">`
             };
             $('#media-results').append(
-                `<div class="center-me"><li class="result-display">
+                `<li class="result-display">
           <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
           <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</li></div>`)   
 
