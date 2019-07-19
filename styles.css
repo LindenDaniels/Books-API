@@ -26,17 +26,27 @@ body {
     
     color: #845E98;
 }
+.search-form button {
+    background-color: transparent;
+    border-radius: 20px;
+    margin-left: 9px;
+    color: white;
+}
 
 .form-container {
     margin: auto;
-    max-width: 800px;
-    background: rgba(0, 0, 0, 0.50);
+    position: fixed;
+    background: black;
+    width: 100%;
     
 }
 
 .search-box {
     flex: 2;
     padding: 5px;
+    border-radius: 30px;
+    max-width: 60%;
+   
    
 }
 ul { 
@@ -47,17 +57,19 @@ ul {
     padding: 5px;
     flex-wrap: wrap; 
     margin: auto;
+    justify-content: center;
     
 }
 #search-results {
     background: rgba(0, 0, 0, 0.50);
+    padding-top: 200px;
 }
 .search-term {
     flex-basis: 100%;
 }
 h1 {
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     flex-basis: 100%;
     text-align: center;
     font-family: 'Cinzel', serif;
@@ -87,16 +99,18 @@ label {
 }
 
 #results-list .result-display {
+    border-radius: 10px;
     flex: 1;
     padding: 30px;  
     flex-wrap: wrap;
     border: 1px solid white;
     margin: 1%;
-    background: #fff;
+    background: black;
 }
 .search-text {
     font-size: 18px;
     padding-bottom: 10px;
+    text-align: center;
 }
 .no-results {
     font-size: 20px;
