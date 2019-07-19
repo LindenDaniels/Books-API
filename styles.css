@@ -184,7 +184,7 @@ h3 {
       cursor: pointer;
   }
   .media-img {
-    background-color: #347966;
+    
     padding: 10px;
     color: blue;
   }
@@ -193,9 +193,8 @@ h3 {
 
 }
 .center-me-2 {
-display: inline-block;
-margin-left: auto;
-    margin-right: auto; 
+display: flex;
+justify-content: center;
 }
   
   .book-cover {
