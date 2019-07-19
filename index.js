@@ -197,7 +197,7 @@ $(document).ready(function() {
         for (let i = 0; i < responseJson.results.length; i++) {
             let locs = "";
             for (let j = 0; j < responseJson.results[i].locations.length; j++) {
-                locs += `<a href="${responseJson.results[i].locations[j].url}"><div class="center-me"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></div></a>`
+                locs += `<div class="center-me-2"><a href="${responseJson.results[i].locations[j].url}"><div class="center-me"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></div></a></div>`
             };
             $('#media-results').append(
                 `<li class="result-display">
