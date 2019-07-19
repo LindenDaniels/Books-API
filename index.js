@@ -63,7 +63,7 @@ $(document).ready(function() {
         } else {
         
         for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
-         let holdAuthors = `${responseJson.items[i].volumeInfo.authors}`
+         
          let joinAuthors = responseJson.items[i].volumeInfo.authors.join(", ")
          let holdDescription =  `${responseJson.items[i].volumeInfo.description}`
          
