@@ -72,7 +72,7 @@ $(document).ready(function() {
          }
             $('#results-list').append(
         `<li class="result-display">
-          <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover"></a>
+          <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover" class="book-cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
           <h3>${joinAuthors}</h3>
            
@@ -197,7 +197,7 @@ $(document).ready(function() {
         for (let i = 0; i < responseJson.results.length; i++) {
             let locs = "";
             for (let j = 0; j < responseJson.results[i].locations.length; j++) {
-                locs += `<a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a>`
+                locs += `<a href="${responseJson.results[i].locations[j].url}"><div class="center-me"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></div></a>`
             };
             $('#media-results').append(
                 `<li class="result-display">

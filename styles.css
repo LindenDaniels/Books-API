@@ -111,8 +111,7 @@ label {
     flex-direction: row;
 }
 .result-display img {
-    display: block;
-    margin: auto;
+    
 }
 .result-display p {
     font-size: 18px;
@@ -138,6 +137,8 @@ h3 {
 .media-picture {
     max-width: 800px;
     max-height: 800px;
+    display: block;
+    margin: auto;
 }
 /* The Modal (background) */
 .modal {
@@ -185,7 +186,16 @@ h3 {
   .media-img {
     background-color: #347966;
     padding: 10px;
-
+    color: blue;
+  }
+.center-me {
+display: flex;
+justify-content: center;
+}
+  
+  .book-cover {
+      display: block;
+      margin: auto;
   }
 
 @media screen and (max-width: 1000px) {
