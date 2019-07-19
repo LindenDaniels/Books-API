@@ -86,10 +86,13 @@ label {
   justify-content: space-between;
 }
 
-.result-display {
+#results-list .result-display {
     flex: 1;
     padding: 30px;  
     flex-wrap: wrap;
+    border: 1px solid white;
+    margin: 1%;
+    background: #fff;
 }
 .search-text {
     font-size: 18px;
@@ -196,10 +199,14 @@ h3 {
   a:hover {
       cursor: pointer;
   }
-  .media-img {
-    
-    padding: 10px;
-    background-color: #845E98;
+  img.media-img {
+    margin: 5px 5px;
+    padding: 7px;
+    background-color: #ccc;
+    height: 52px;
+    width: 112px;
+    border: 1px solid #ccc;
+    border-radius: 11px;
   }
 .center-me {
     display: inline-block;
