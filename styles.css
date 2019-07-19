@@ -61,6 +61,8 @@ h1 {
     flex-basis: 100%;
     text-align: center;
     font-family: 'Cinzel', serif;
+    transition-duration: 1s;
+  transition-timing-function: linear;
 }
 label {
     flex-basis: 100%;
@@ -122,6 +124,8 @@ label {
     justify-content: space-around;
 }
 h2 {
+    transition-duration: 1s;
+  transition-timing-function: linear;
     text-align: center;
     color: #845E98;
     font-family: 'Cinzel', serif;
@@ -137,6 +141,8 @@ h1:hover {
     color: #845E98;
 }
 h3 {
+    transition-duration: 1s;
+  transition-timing-function: linear;
     text-align: center;
     color: #845E98;
     font-family: 'Raleway', sans-serif;

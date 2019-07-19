@@ -128,12 +128,7 @@ $(document).ready(function() {
                 let modal1 = document.getElementById("myModal-3");
                 modal1.style.display = "block";
             })
-            $('#results-list').on('click', '#myBtn-4',
-            function(event) {
-                event.preventDefault();
-                let modal1 = document.getElementById("myModal-4");
-                modal1.style.display = "block";
-            })
+            
     }
 
     openModal();
@@ -153,8 +148,7 @@ $(document).ready(function() {
                 modal2.style.display = "none";
                 let modal3 = document.getElementById("myModal-3");
                 modal3.style.display = "none";
-                let modal4 = document.getElementById("myModal-4");
-                modal4.style.display = "none";
+                
             })
     }
     closeModal();
@@ -177,10 +171,7 @@ $(document).ready(function() {
         if (event.target == modal3) {
             modal3.style.display = "none";
         }
-        let modal4 = document.getElementById("myModal-4");
-        if (event.target == modal4) {
-            modal4.style.display = "none";
-        }
+        
     }
 
     function displayMediaResults(responseJson) {
@@ -196,6 +187,7 @@ $(document).ready(function() {
         
         for (let i = 0; i < responseJson.results.length; i++) {
            let locs = `<div class="center-me-2">`;
+           
         for (let j = 0; j < responseJson.results[i].locations.length; j++) { 
                locs += `<div class="center-me"><a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a></div>` 
              };
