@@ -72,10 +72,14 @@ $(document).ready(function() {
          }
             $('#results-list').append(
         `<li class="result-display">
+        <div class="hold-together">
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover" class="book-cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
           <h3>${joinAuthors}</h3>
-           
+          </li>
+          
+          
+           <li>
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
           </div>
@@ -85,8 +89,10 @@ $(document).ready(function() {
           <p>${holdDescription}</p>
           </div>
           </div>
+
           
           </li>
+          </div>
           `);
         };
 

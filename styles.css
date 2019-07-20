@@ -237,7 +237,8 @@ h3 {
     border: 1px solid #ccc;
     border-radius: 11px;
   }
-.center-me {
+.result-display {
+    overflow: auto;
    
 
 }
