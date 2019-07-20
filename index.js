@@ -8,7 +8,7 @@ let changingWords = new Array('You', 'Game of Thrones', 'Legion', 'Handmaid\'s T
     currentWord = 0;
     
 $(document).ready(function() {
-    function handleChangingWords() {
+    /*function handleChangingWords() {
         console.log('`handleChangingWords ran`');
 
         $('#js-search-term').val(
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     }
     stopChangingWords();
-
+*/
     function formatQueryParamsBooks(params) {
         console.log(`formatQueryParams ran`);
         const queryItems = Object.keys(params)
@@ -195,7 +195,7 @@ $(document).ready(function() {
             $('#media-results').append(
                 `<li class="result-display">
           <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
-          <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</li>`)   
+         <div class="media-name-and-source"> <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</div></li>`)   
 
             };
 
@@ -270,7 +270,7 @@ $(document).ready(function() {
 
             let searchTerm = $('#js-search-term').val();
 
-            handleChangeWords();
+            /*handleChangeWords();*/
 
             getMedia(searchTerm);
             getBooks(searchTerm);
