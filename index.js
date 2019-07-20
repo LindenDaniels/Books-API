@@ -78,13 +78,14 @@ $(document).ready(function() {
            
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
+          </div>
           <div id="myModal-${i}" class="modal">
           <div class="modal-content">
           <span class="close">&times;</span>
           <p>${holdDescription}</p>
           </div>
           </div>
-          </div>
+          
           </li>
           `);
         };
