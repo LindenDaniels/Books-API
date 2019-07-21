@@ -76,10 +76,7 @@ $(document).ready(function() {
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover" class="book-cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
           <h3>${joinAuthors}</h3>
-          </li>
           
-          
-           <li>
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
           </div>
