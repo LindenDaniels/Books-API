@@ -15,9 +15,7 @@ body {
    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-   
     background-size: cover;
-	
 	color: #84B2A5;
 	font-size: 18px;
 }
@@ -50,7 +48,6 @@ body {
     background: black;
     width: 100%;
     z-index: 1;
-    
 }
 
 .search-box {
@@ -113,7 +110,7 @@ input {
 
 #results-list .result-display {
     border-radius: 10px;
-    flex: 1;
+    flex-basis: 30%;
     padding: 30px;  
     flex-wrap: wrap;
     border: 1px solid white;
@@ -150,12 +147,19 @@ input {
     font-family: 'Raleway', sans-serif;
 }
 .hold-buttons {
+    
     display: flex;
-    justify-content: space-around;
-    margin: auto;
-    position: absolute;
-    bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    
 }
+.hold-buttons button {
+
+}
+.flex-items {
+
+}
+
 h2 {
     transition-duration: 1s;
   transition-timing-function: linear;
@@ -249,6 +253,8 @@ justify-content: center;
   .book-cover {
       display: block;
       margin: auto;
+      width: 128px;
+      height: 197px;
   }
 
 @media screen and (max-width: 1000px) {

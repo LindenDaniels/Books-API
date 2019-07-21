@@ -21,7 +21,7 @@ $(document).ready(function() {
         return queryItems.join('&');
     }
 
-    function displayResults(responseJson, maxResults = 4) {
+    function displayResults(responseJson, maxResults = 6) {
 
         console.log(`displayResults ran`);
         console.log(responseJson);
@@ -42,7 +42,8 @@ $(document).ready(function() {
             holdDescription = "This book does not have a description.";
          }
             $('#results-list').append(
-        `<li class="result-display">
+        `
+        <li class="result-display">
         
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover" class="book-cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
@@ -50,14 +51,16 @@ $(document).ready(function() {
           
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
-          </div>
+          
+          
           <div id="myModal-${i}" class="modal">
           <div class="modal-content">
           <span class="close">&times;</span>
           <p>${holdDescription}</p>
           </div>
           </div>
-
+          </div>
+          </div>
           </li>
           `);
         };
