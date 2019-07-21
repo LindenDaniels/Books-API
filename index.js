@@ -20,13 +20,14 @@ $(document).ready(function() {
             .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
         return queryItems.join('&');
     }
-
+/* <h3>${joinAuthors}</h3>*/
     function displayResults(responseJson, maxResults = 6) {
 
         console.log(`displayResults ran`);
         console.log(responseJson);
       
         $('#results-list').empty();
+        
         if (responseJson.totalItems === 0) {
             $('#results-list').append(
                 `<p class="no-results">No books found. Please try your search again.</p>`
@@ -47,8 +48,8 @@ $(document).ready(function() {
         
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover" class="book-cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
+         
           <h3>${joinAuthors}</h3>
-          
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
           
