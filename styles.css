@@ -102,7 +102,7 @@ label {
     flex-wrap: wrap;
     flex-flow: row wrap;
   align-content: space-between;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 input {
     padding-left: 8px;
