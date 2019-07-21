@@ -155,6 +155,8 @@ input {
 .hold-buttons {
     display: flex;
     justify-content: space-around;
+    position: absolute;
+    bottom: 0px;
 }
 h2 {
     transition-duration: 1s;
