@@ -12,7 +12,6 @@ body {
    background-repeat: no-repeat;
    background-position: center;
    background-attachment: fixed;
-   
    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -56,10 +55,8 @@ body {
 
 .search-box {
     flex: 2;
-    
     border-radius: 30px;
     max-width: 60%;
-   
    
 }
 ul { 
@@ -155,6 +152,7 @@ input {
 .hold-buttons {
     display: flex;
     justify-content: space-around;
+    margin: auto;
     position: absolute;
     bottom: 0px;
 }
@@ -241,8 +239,6 @@ h3 {
   }
 .result-display {
     overflow: auto;
-   
-
 }
 .center-me-2 {
 display: flex;
@@ -271,5 +267,3 @@ justify-content: center;
         height: 100%;
     }
 }
-
-

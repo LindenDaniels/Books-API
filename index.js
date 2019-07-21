@@ -4,38 +4,9 @@ const rapidApiKey = '185cf93378mshac80b72e1951906p101c0ajsn94eb1a12e125';
 const apiKey = 'AIzaSyByBhHS863v3SY7Bu6FXv0NuAJYir6aN9g';
 const searchURL = 'https://www.googleapis.com/books/v1/volumes';
 const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
-let changingWords = new Array('You', 'Game of Thrones', 'Legion', 'Handmaid\'s Tale'),
-    currentWord = 0;
-    
+   
 $(document).ready(function() {
-    /*function handleChangingWords() {
-        console.log('`handleChangingWords ran`');
-
-        $('#js-search-term').val(
-            `${changingWords[currentWord]}`);
-        if (currentWord < changingWords.length - 1) {
-            currentWord++;
-        } else {
-            currentWord = 0;
-        }
-    }
-
-    let changeWords = setInterval(handleChangingWords, 1500);
-
-    function handleChangeWords() {
-        changeWords;
-    }
     
-    function stopChangingWords() {
-        console.log('`stopChangingWords ran`');
-        $('.search-box').click(function(event) {
-            event.preventDefault();
-            clearInterval(changeWords);
-        });
-
-    }
-    stopChangingWords();
-*/
     function formatQueryParamsBooks(params) {
         console.log(`formatQueryParams ran`);
         const queryItems = Object.keys(params)
@@ -91,12 +62,10 @@ $(document).ready(function() {
           `);
         };
 
-
         $('#search-results').removeClass('hidden');
 
     };
 }
-
 
     // Get the button that opens the modal
     
@@ -129,13 +98,11 @@ $(document).ready(function() {
                 event.preventDefault();
                 let modal1 = document.getElementById("myModal-3");
                 modal1.style.display = "block";
-            })
-            
+            })     
     }
 
     openModal();
    
-
     function closeModal() {
         var span = document.getElementsByClassName("close")[0];
         // When the user clicks on <span> (x), close the modal
@@ -200,9 +167,7 @@ $(document).ready(function() {
          <div class="media-name-and-source"> <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</div></li>`)   
 
             };
-
         }
-    
         $('#search-results').removeClass('hidden');
     }
 
@@ -215,7 +180,6 @@ $(document).ready(function() {
         };
         const queryString = formatQueryParamsBooks(params)
         const url = searchURL + '?' + queryString + '&key=' + apiKey;
-
 
         console.log(url);
 
@@ -257,26 +221,19 @@ $(document).ready(function() {
                 }
                 throw new Error(response.statusText);
             })
-            .then(responseJson => displayMediaResults(responseJson, /*maxResults*/ ))
+            .then(responseJson => displayMediaResults(responseJson))
             .catch(err => {
                 $('#js-error-message').text(`Something went wrong: ${err.message}`);
             });
     }
 
-
     function watchForm() {
         console.log(`watchForm ran`);
-
         $('form').submit(event => {
             event.preventDefault();
-
             let searchTerm = $('#js-search-term').val();
-
-            /*handleChangeWords();*/
-
             getMedia(searchTerm);
             getBooks(searchTerm);
-
         });
     }
 
