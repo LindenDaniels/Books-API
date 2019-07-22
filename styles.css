@@ -165,12 +165,7 @@ input {
     align-items: center;
     
 }
-.hold-buttons button {
 
-}
-.flex-items {
-
-}
 
 h2 {
     transition-duration: 1s;
@@ -274,9 +269,9 @@ justify-content: center;
         max-width: 300px;
         max-height: 300px;
     }
-    /*#results-list {
+    #results-list {
         display: block;
-    }*/
+    }
     .result-display {
         flex: 1;
     }
