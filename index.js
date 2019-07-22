@@ -147,7 +147,7 @@ $(document).ready(function() {
         
     }
 
-    function displayMediaResults(responseJson) {
+    function displayMediaResults(responseJson, maxResults = 5) {
 
         console.log(`displayMediaResults ran`);
         console.log(responseJson);
@@ -158,7 +158,7 @@ $(document).ready(function() {
             )
         } else {
         
-        for (let i = 0; i < responseJson.results.length; i++) {
+        for (let i = 0; i < responseJson.results.length & i < maxResults; i++) {
            let locs = `<div class="center-me-2">`;
            
         for (let j = 0; j < responseJson.results[i].locations.length; j++) { 
