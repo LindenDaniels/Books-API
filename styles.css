@@ -274,9 +274,9 @@ justify-content: center;
         max-width: 300px;
         max-height: 300px;
     }
-    #results-list {
+    /*#results-list {
         display: block;
-    }
+    }*/
     .result-display {
         flex: 1;
     }
