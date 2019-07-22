@@ -282,4 +282,7 @@ justify-content: center;
     html {
         height: 100%;
     }
+    .form-container {
+        border-radius: 10px;
+    }
 }
