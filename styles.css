@@ -26,13 +26,13 @@ body {
     left: 10px;
     bottom: 200px;
 }
-/*#media-results .result-display {
+#media-results .result-display {
     border-radius: 10px;
     border: 1px solid white;
     margin: 1%;
     background: black;
-}*/
-#media-results .result-display {
+}
+/*#media-results .result-display {
 border-radius: 10px;
 flex-basis: 45%;
 padding: 30px;  
@@ -40,7 +40,7 @@ flex-wrap: wrap;
 border: 1px solid #84B2A5;
 margin: 1%;
 background: #000000f0;
-}
+}*/
 .media-stuff { 
     color: #845E98;
 }
