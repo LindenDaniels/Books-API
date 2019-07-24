@@ -236,7 +236,7 @@ h3 {
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: #845E98;
     text-decoration: none;
     cursor: pointer;
   }
@@ -303,14 +303,6 @@ justify-content: center;
     .form-container {
         border-radius: 10px;
     }
-    /*.search-text{
-        visibility:hidden;
-    opacity:0;
-    transition:visibility 0.3s linear,opacity 0.3s linear;
-    }
-    .materical-icons:focus > .search-box {
-        visibility:visible;
-        opacity:1;
-    }*/
+  
     
 }

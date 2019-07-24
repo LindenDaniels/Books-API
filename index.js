@@ -7,49 +7,14 @@ const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.
    
 $(document).ready(function() {
     
-
-   
-        
-       /* $(window).scroll(function(event) {
-            event.preventDefault();
-            /*$('.explorable-title').css("position", "absolute");
-            $('.explorable-title').css("opacity", "0");
-            $('.search-text').css("position", "absolute");
-            $('.search-text').css("opacity", "0");*/
-            /*$('.explorable-title').fadeOut();
-            $('.search-text').fadeOut();
-            var scrollTop = $(document).scrollTop();
-            if (scrollTop + $(document).innerHeight() >= document.scrollHeight) { 
-                $('.explorable-title').fadeIn()
-$('.search-text').fadeIn();
-            }
-        })
-    }
-}
-           function restoreSearch() {
-               if (x.matches) { 
-            
-             
-            if ($(document.body).scrollTop() == 0 ) {
-                $('.explorable-title').fadeIn();
-                $('.search-text').fadeIn();
-            }
-        
-            }
-        }*/
-
-   /* let x = window.matchMedia("(max-width: 700px)")
-    collapseSearchBar(x);
-    /*restoreSearch(x)*/
-    /*x.addListener(collapseSearchBar)*/
-    /*x.addListener(restoreSearch)*/
     function collapseSearchBar() {
         console.log(`collapseSearchBar ran`)
         
     $(window).scroll(function(event) {
         event.preventDefault();
-        var scrollTop = $(this).scrollTop();
+        
         if (x.matches) {
+            let scrollTop = $(this).scrollTop();
         if (scrollTop + $(this).innerHeight() >= this.scrollHeight) {
           alert("bottom reached");
         } else if (scrollTop <= 0) {
@@ -60,8 +25,8 @@ $('.search-text').fadeIn();
             $('.search-text').fadeOut();
         }
 
-        var scrollTop = $(document).scrollTop();
-        if (scrollTop + $(document).innerHeight() >= document.scrollHeight) { 
+        let scrollTop1 = $(document).scrollTop();
+        if (scrollTop1 + $(document).innerHeight() >= document.scrollHeight) { 
             $('.explorable-title').fadeIn()
             $('.search-text').fadeIn();
         }
@@ -160,23 +125,35 @@ $('.search-text').fadeIn();
             $('#results-list').on('click', '#myBtn-2',
             function(event) {
                 event.preventDefault();
-                let modal1 = document.getElementById("myModal-2");
-                modal1.style.display = "block";
+                let modal2 = document.getElementById("myModal-2");
+                modal2.style.display = "block";
             })
             $('#results-list').on('click', '#myBtn-3',
             function(event) {
                 event.preventDefault();
-                let modal1 = document.getElementById("myModal-3");
-                modal1.style.display = "block";
-            })     
+                let modal3 = document.getElementById("myModal-3");
+                modal3.style.display = "block";
+            })  
+            $('#results-list').on('click', '#myBtn-4',
+            function(event) {
+                event.preventDefault();
+                let modal4 = document.getElementById("myModal-4");
+                modal4.style.display = "block";
+            })   
+            $('#results-list').on('click', '#myBtn-5',
+            function(event) {
+                event.preventDefault();
+                let modal5 = document.getElementById("myModal-5");
+                modal5.style.display = "block";
+            })      
     }
 
     openModal();
    
     function closeModal() {
-        var span = document.getElementsByClassName("close")[0];
+        let span = document.getElementsByClassName("close")[0];
         // When the user clicks on <span> (x), close the modal
-        $('#results-list').on('click', 'span',
+        $('#results-list').on('click', '.close',
             function(event) {
                 event.preventDefault();
                 let modal0 = document.getElementById("myModal-0");
@@ -187,6 +164,10 @@ $('.search-text').fadeIn();
                 modal2.style.display = "none";
                 let modal3 = document.getElementById("myModal-3");
                 modal3.style.display = "none";
+                let modal4 = document.getElementById("myModal-4");
+                modal4.style.display = "none";
+                let modal5 = document.getElementById("myModal-5");
+                modal5.style.display = "none";
                 
             })
     }
@@ -209,6 +190,14 @@ $('.search-text').fadeIn();
         let modal3 = document.getElementById("myModal-3");
         if (event.target == modal3) {
             modal3.style.display = "none";
+        }
+        let modal4 = document.getElementById("myModal-4");
+        if (event.target == modal4) {
+            modal4.style.display = "none";
+        }
+        let modal5 = document.getElementById("myModal-5");
+        if (event.target == modal5) {
+            modal5.style.display = "none";
         }
         
     }
