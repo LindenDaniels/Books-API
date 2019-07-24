@@ -19,6 +19,11 @@ $(document).ready(function() {
             $('.search-text').css("opacity", "0");*/
             $('.explorable-title').fadeOut();
             $('.search-text').fadeOut();
+            var scrollTop = $(document).scrollTop();
+            if (scrollTop + $(document).innerHeight() >= document.scrollHeight) { 
+                $('.explorable-title').fadeIn()
+$('.search-text').fadeIn();
+            }
         })
     }
 }
