@@ -8,12 +8,10 @@ const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.
 $(document).ready(function() {
     
     function collapseSearchBar() {
-        console.log(`collapseSearchBar ran`)
-        
+        console.log(`collapseSearchBar ran`) 
     $(window).scroll(function(event) {
         event.preventDefault();
-        
-        if (x.matches) {
+        if (x.matches) { //if screen width is below a certain size
             let scrollTop = $(this).scrollTop();
         if (scrollTop + $(this).innerHeight() >= this.scrollHeight) {
           alert("bottom reached");
@@ -24,7 +22,6 @@ $(document).ready(function() {
             $('.explorable-title').fadeOut();
             $('.search-text').fadeOut();
         }
-
         let scrollTop1 = $(document).scrollTop();
         if (scrollTop1 + $(document).innerHeight() >= document.scrollHeight) { 
             $('.explorable-title').fadeIn()
@@ -36,7 +33,6 @@ $(document).ready(function() {
     let x = window.matchMedia("(max-width: 700px)")
     collapseSearchBar(x);
     x.addListener(collapseSearchBar)
-    
     
     function formatQueryParamsBooks(params) {
         console.log(`formatQueryParams ran`);
@@ -51,12 +47,11 @@ $(document).ready(function() {
             .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
         return queryItems.join('&');
     }
-/* <h3>${joinAuthors}</h3>*/
+
     function displayResults(responseJson, maxResults = 6) {
 
         console.log(`displayResults ran`);
         console.log(responseJson);
-      
         $('#results-list').empty();
         
         if (responseJson.totalItems === 0) {
@@ -65,26 +60,20 @@ $(document).ready(function() {
             )
         } else {
         
-        for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
-         
+            for (let i = 0; i < responseJson.items.length & i < maxResults; i++) {
          let joinAuthors = responseJson.items[i].volumeInfo.authors.join(", ")
          let holdDescription =  `${responseJson.items[i].volumeInfo.description}`
          
          if (typeof responseJson.items[i].volumeInfo.description == "undefined") {
             holdDescription = "This book does not have a description.";
          }
-            $('#results-list').append(
-        `
-        <li class="result-display">
-        
+           $('#results-list').append(
+        `<li class="result-display">
           <a href="${responseJson.items[i].volumeInfo.previewLink}" target='_blank'"><img src="${responseJson.items[i].volumeInfo.imageLinks.thumbnail} alt="Book cover" class="book-cover"></a>
           <h2>${responseJson.items[i].volumeInfo.title}</h2>
-         
           <h3>${joinAuthors}</h3>
           <div class="hold-buttons">
           <button id="myBtn-${i}">Book Description</button>
-          
-          
           <div id="myModal-${i}" class="modal">
           <div class="modal-content">
           <span class="close">&times;</span>
@@ -92,23 +81,15 @@ $(document).ready(function() {
           </div>
           </div>
           </div>
-          </div>
-          </li>
-          `);
+          </li>`
+          );
         };
-
         $('#search-results').removeClass('hidden');
-
     };
 }
-
     // Get the button that opens the modal
-    
-
     // Get the <span> element that closes the modal
-
     function openModal() {
-       
         // When the user clicks on the button, open the modal 
         $('#results-list').on('click', '#myBtn-0',
             function(event) {
@@ -167,8 +148,7 @@ $(document).ready(function() {
                 let modal4 = document.getElementById("myModal-4");
                 modal4.style.display = "none";
                 let modal5 = document.getElementById("myModal-5");
-                modal5.style.display = "none";
-                
+                modal5.style.display = "none";  
             })
     }
     closeModal();
@@ -203,7 +183,6 @@ $(document).ready(function() {
     }
 
     function displayMediaResults(responseJson) {
-
         console.log(`displayMediaResults ran`);
         console.log(responseJson);
         $('#media-results').empty();
@@ -217,31 +196,28 @@ $(document).ready(function() {
            let locs = `<div class="center-me-2">`;
            
         for (let j = 0; j < responseJson.results[i].locations.length; j++) { 
-               locs += `<div class="center-me"><a href="${responseJson.results[i].locations[j].url}"><img src="${responseJson.results[i].locations[j].icon}" class="media-img" alt="${responseJson.results[i].locations[i].display_name}"></a></div>` 
+               locs += `<div class="center-me"><a href="${responseJson.results[i].locations[j].url}">
+               <img src="${responseJson.results[i].locations[j].icon}" class="media-img" 
+               alt="${responseJson.results[i].locations[i].display_name}"></a></div>` 
              };
                 locs += `</div>`;
             $('#media-results').append(
                 `<li class="result-display">
           <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
-         <div class="media-name-and-source"> <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</div></li>`)   
-
+          <div class="media-name-and-source"> <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</div></li>`)   
             };
         }
         $('#search-results').removeClass('hidden');
     }
 
     function getBooks(searchTerm) {
-
         console.log(`getBooks ran`);
         const params = {
             q: searchTerm,
-
         };
         const queryString = formatQueryParamsBooks(params)
         const url = searchURL + '?' + queryString + '&key=' + apiKey;
-
         console.log(url);
-
         fetch(url)
             .then(response => {
                 if (response.ok) {
