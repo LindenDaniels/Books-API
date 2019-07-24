@@ -7,6 +7,40 @@ const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.
    
 $(document).ready(function() {
     
+
+   /*let handleSearchCollapse =*/ function collapseSearchBar() {
+        console.log(`collapseSearchBar ran`)
+        if (x.matches) {
+        $(window).scroll(function(event) {
+            event.preventDefault();
+            /*$('.explorable-title').css("position", "absolute");
+            $('.explorable-title').css("opacity", "0");
+            $('.search-text').css("position", "absolute");
+            $('.search-text').css("opacity", "0");*/
+            $('.explorable-title').fadeOut();
+            $('.search-text').fadeOut();
+        })
+    }
+}
+           function restoreSearch() {
+               if (x.matches) { 
+            
+             
+            if ($(document.body).scrollTop() == 0 ) {
+                $('.explorable-title').fadeIn();
+                $('.search-text').fadeIn();
+            }
+        
+            }
+        }
+
+    let x = window.matchMedia("(max-width: 700px)")
+    collapseSearchBar(x);
+    restoreSearch(x)
+    x.addListener(collapseSearchBar)
+    x.addListener(restoreSearch)
+    
+    
     function formatQueryParamsBooks(params) {
         console.log(`formatQueryParams ran`);
         const queryItems = Object.keys(params)
@@ -147,7 +181,7 @@ $(document).ready(function() {
         
     }
 
-    function displayMediaResults(responseJson, maxResults = 5) {
+    function displayMediaResults(responseJson) {
 
         console.log(`displayMediaResults ran`);
         console.log(responseJson);
@@ -158,7 +192,7 @@ $(document).ready(function() {
             )
         } else {
         
-        for (let i = 0; i < responseJson.results.length & i < maxResults; i++) {
+        for (let i = 0; i < responseJson.results.length; i++) {
            let locs = `<div class="center-me-2">`;
            
         for (let j = 0; j < responseJson.results[i].locations.length; j++) { 
