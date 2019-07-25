@@ -4,11 +4,9 @@ const rapidApiKey = '185cf93378mshac80b72e1951906p101c0ajsn94eb1a12e125';
 const apiKey = 'AIzaSyByBhHS863v3SY7Bu6FXv0NuAJYir6aN9g';
 const searchURL = 'https://www.googleapis.com/books/v1/volumes';
 const mediaURL = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup';
-   
 $(document).ready(function() {
-    
-    function collapseSearchBar() {
-        console.log(`collapseSearchBar ran`) 
+   function collapseSearchBar() {
+        console.log(`collapseSearchBar ran`);
     $(window).scroll(function(event) {
         event.preventDefault();
         if (x.matches) { //if screen width is below a certain size
@@ -16,7 +14,7 @@ $(document).ready(function() {
         if (scrollTop + $(this).innerHeight() >= this.scrollHeight) {
           alert("bottom reached");
         } else if (scrollTop <= 0) {
-            $('.explorable-title').fadeIn()
+            $('.explorable-title').fadeIn();
             $('.search-text').fadeIn();
         } else {
             $('.explorable-title').fadeOut();
@@ -30,10 +28,10 @@ $(document).ready(function() {
     }
 })
    }
-    let x = window.matchMedia("(max-width: 700px)")
+    let x = window.matchMedia("(max-width: 700px)");
     collapseSearchBar(x);
-    x.addListener(collapseSearchBar)
-    
+    x.addListener(collapseSearchBar);
+
     function formatQueryParamsBooks(params) {
         console.log(`formatQueryParams ran`);
         const queryItems = Object.keys(params)
@@ -65,7 +63,7 @@ $(document).ready(function() {
          let holdDescription =  `${responseJson.items[i].volumeInfo.description}`
          
          if (typeof responseJson.items[i].volumeInfo.description == "undefined") {
-            holdDescription = "This book does not have a description.";
+            holdDescription = 'This book does not have a description.';
          }
            $('#results-list').append(
         `<li class="result-display">
@@ -203,7 +201,7 @@ $(document).ready(function() {
                 locs += `</div>`;
             $('#media-results').append(
                 `<li class="result-display">
-          <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture of TV show or movie">
+          <img src="${responseJson.results[i].picture}" class="media-picture" alt="Picture from TV show or movie">
           <div class="media-name-and-source"> <h2 class="media-stuff">${responseJson.results[i].name}</h2>` + locs + `</div></li>`)   
             };
         }
